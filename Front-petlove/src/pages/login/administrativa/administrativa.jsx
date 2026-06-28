@@ -1,26 +1,41 @@
 import { useState } from "react";
-import "./dashboard.css";
+import "./administrativa.css";
 
-export default function Dashboard({ onLogout }) {
+export default function Administrativa({ onLogout }) {
   const [alerts] = useState([
     { title: "Patrulha em movimento", area: "Centro", status: "Monitorando" },
-    { title: "Camera 12 fora do ar", area: "Pinheiros", status: "Atencao" },
+    { title: "Câmera 12 fora do ar", area: "Pinheiros", status: "Atenção" },
     { title: "Alerta de tráfego", area: "Marginal", status: "Resolvido" },
   ]);
 
   return (
-    <div className="dashboard-page">
-      <div className="dashboard-shell">
-        <header className="dashboard-header">
-          <div className="dashboard-title">
-            <h1>Dashboard de Segurança</h1>
-            <p>São Paulo • Monitoramento em tempo real</p>
+    <div className="admin-page">
+      <aside className="admin-sidebar">
+        <div>
+          <h2>Segurança SP</h2>
+          <p>Painel administrativo</p>
+        </div>
+
+        <nav className="admin-nav">
+          <a href="#" className="active">Visão geral</a>
+          <a href="#">Câmeras</a>
+          <a href="#">Equipes</a>
+          <a href="#">Relatórios</a>
+          <a href="#">Configurações</a>
+        </nav>
+
+        <button type="button" className="logout-button" onClick={onLogout}>
+          Sair do painel
+        </button>
+      </aside>
+
+      <main className="admin-main">
+        <header className="admin-header">
+          <div>
+            <p className="eyebrow">Administração central</p>
+            <h1>Gerenciamento da segurança urbana</h1>
           </div>
-          <div className="user-chip">
-            <button type="button" className="logout-button" onClick={onLogout}>
-              Sair
-            </button>
-          </div>
+          <div className="admin-user">Usuário: Administrador</div>
         </header>
 
         <section className="stats-grid">
@@ -33,8 +48,8 @@ export default function Dashboard({ onLogout }) {
             <div className="stat-value">186</div>
           </div>
           <div className="stat-card">
-            <h3>Rotas seguras</h3>
-            <div className="stat-value">92%</div>
+            <h3>Equipes em ação</h3>
+            <div className="stat-value">8</div>
           </div>
           <div className="stat-card">
             <h3>Resposta média</h3>
@@ -42,15 +57,15 @@ export default function Dashboard({ onLogout }) {
           </div>
         </section>
 
-        <section className="main-grid">
-          <div className="panel">
-            <h2>Mapa de monitoramento</h2>
+        <section className="content-grid">
+          <div className="panel large-panel">
+            <h2>Monitoramento por região</h2>
             <div className="map-card">
               <div className="map-overlay">
                 <div className="map-badge">Cobertura urbana</div>
                 <div>
-                  <h2>Monitoramento inteligente</h2>
-                  <p>Visão completa das principais regiões da cidade.</p>
+                  <h3>Central de operações</h3>
+                  <p>Controle das principais zonas da cidade de São Paulo.</p>
                 </div>
               </div>
             </div>
@@ -69,14 +84,29 @@ export default function Dashboard({ onLogout }) {
                 </div>
               ))}
             </div>
-
-            <div className="action-row">
-              <button type="button">Ver relatório</button>
-              <button type="button">Enviar equipe</button>
-            </div>
           </div>
         </section>
-      </div>
+
+        <section className="content-grid secondary-grid">
+          <div className="panel">
+            <h2>Atalhos administrativos</h2>
+            <div className="shortcut-list">
+              <button type="button">Enviar equipe</button>
+              <button type="button">Gerar relatório</button>
+              <button type="button">Atualizar câmeras</button>
+            </div>
+          </div>
+
+          <div className="panel">
+            <h2>Status operacional</h2>
+            <ul className="status-list">
+              <li><span>Infraestrutura</span><strong>Normal</strong></li>
+              <li><span>Rede</span><strong>Estável</strong></li>
+              <li><span>Segurança física</span><strong>Monitorada</strong></li>
+            </ul>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
