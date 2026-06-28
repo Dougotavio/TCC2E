@@ -1,0 +1,166 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+.login-page{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    width:100vw;
+    background:#08121d;
+    position:relative;
+    overflow:hidden;
+}
+
+.background{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(135deg, rgba(3,12,22,0.95), rgba(5,20,34,0.7)),
+        url('../../assets/sao-paulo-map.svg') center/cover no-repeat;
+    transform:scale(1.05);
+    filter:blur(0.5px);
+}
+
+.background::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at top, rgba(0, 180, 255, 0.2), transparent 35%);
+}
+
+.login-container{
+    position:relative;
+    width:min(420px, calc(100vw - 32px));
+    padding:40px;
+    background:rgba(17,25,40,.75);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+}
+
+.mode-switch{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:24px;
+}
+
+.mode-switch button{
+    width:100%;
+    padding:12px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:999px;
+    background:rgba(255,255,255,.06);
+    color:#dce8f4;
+    font-weight:600;
+}
+
+.mode-switch button.active{
+    background:linear-gradient(90deg,#00a8ff,#006eff);
+    color:white;
+    border-color:transparent;
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.shield{
+    font-size:55px;
+}
+
+.logo h1{
+    color:white;
+    margin-top:10px;
+}
+
+.logo p{
+    color:#90a8c0;
+    font-size:14px;
+}
+
+.input-box{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:20px;
+}
+
+.input-box label{
+    color:white;
+    margin-bottom:8px;
+}
+
+.input-box input{
+    padding:14px;
+    border-radius:10px;
+    border:1px solid transparent;
+    background:#132131;
+    color:white;
+    outline:none;
+    transition:.3s;
+}
+
+.input-box input:focus{
+    border-color:#00b7ff;
+    box-shadow:0 0 15px rgba(0,183,255,.4);
+}
+
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+.options a{
+    color:#00b7ff;
+    text-decoration:none;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    color:white;
+    background:linear-gradient(90deg,#00a8ff,#006eff);
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(0,168,255,.6);
+}
+
+button:disabled{
+    opacity:0.55;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow:none;
+}
+
+.form-error{
+    margin-bottom:14px;
+    color:#ff8a8a;
+    font-size:13px;
+    text-align:center;
+}
+
+.footer{
+    margin-top:25px;
+    color:#7f95ad;
+    font-size:12px;
+    text-align:center;
+}
